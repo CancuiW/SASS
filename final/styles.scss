@@ -1,0 +1,106 @@
+@import "reset";
+@import "variables";
+@import "mixins";
+//https: //www.youtube.com/watch?v=jdzZXF6J664---SASS Tutorials by Net Ninja
+//note:the ways to compile SCSS
+//1.Prepros,Koala,Scout applictions to compile SCSS
+//2.command code:   
+//2.1 npm install -g sass
+//2.2 sass final/styles.scss css/styles.css ----> compiling SCSS
+
+
+#main-nav{
+  background: $deepBlue;
+  ul{
+    width: 100%;
+    @include clearFix;
+  }
+  li{
+    float: left;
+    //mathematical operators
+    //(100% / 6) :make every item has same width
+    width: calc(100% / 6);
+   
+    @include mQ(800px){
+      width: 100%;
+    }
+  }
+   
+  a{
+    color: $offWhite;
+    text-decoration: none;
+    padding: 16px;
+    display: block;
+    text-align: center;
+    //deal with pseudo class: &:
+    &:hover{
+      //Function Reference: https: //sass-lang.com/documentation/modules/
+      background: lighten($deepBlue, 6);
+    }
+   }
+
+
+   
+}
+
+
+section h1{
+  // margin: 40px 0;
+  // text-align: center;
+  // text-transform: uppercase;
+  color: $deepBlue;
+  font-size: $sectionHeading;
+}
+
+ #services{
+   li{
+     float: left;
+//     width: 33.33%;
+     box-sizing: border-box;
+     text-align: center;
+    width: calc(100% / 3);
+   }
+  img{
+    width: 60%;
+    margin: 20px 20%;
+  }
+   a{
+     text-decoration: none;
+     color: $deepBlue;
+     font-weight: bold;
+    &:hover{
+      color: complement($deepBlue);
+
+    }
+  }
+  ul{
+      @include clearFix;
+  }
+   
+  margin-bottom: 60px;
+ }
+
+//import 'mixins' by @include banner;
+.lead-banner{
+  @include banner;
+  text-align: right;
+}
+
+.lessons-banner{
+  @include banner;
+  text-align: left;
+
+  li{
+    text-transform: uppercase;
+    font-size: 20px;
+    max-width: 500px;
+    margin: 60px 0;
+  }
+}
+
+#projects li{
+  @include grid(6, 2%);
+  img{
+    width: 100%;
+  }
+}
